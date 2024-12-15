@@ -150,13 +150,14 @@ struct SettingsSheetView: View {
                             .fill(highlightColors[index])
                             .frame(width: 40, height: 40)
                             .overlay(
-                                Circle().stroke(Color.black, lineWidth: 2) // Border around circle
+                                Circle().stroke(highlightColor == highlightColors[index] ? Color.sage : Color.gray, lineWidth: highlightColor == highlightColors[index] ? 3 : 1) // White border for selected, gray for others
                             )
+
                             .onTapGesture {
                                 highlightColor = highlightColors[index] // Set the highlight color
                             }
-                            .accessibilityLabel("Select \(highlightColorNames[index]) highlight color") // Accessible label with color name
                     }
+
                 }
                 .padding([.leading, .trailing])
             }

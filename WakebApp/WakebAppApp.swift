@@ -11,7 +11,8 @@ import SwiftUI
 struct WakebAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+           // ContentView()
+            ReadingPage()
         }
     }
 }

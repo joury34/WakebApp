@@ -15,7 +15,7 @@ struct BoardingPage: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
-                // Top Section with Skip Button
+                
                 HStack {
                     Button(action: {
                         print("Skip pressed")
@@ -28,7 +28,7 @@ struct BoardingPage: View {
                     Button(action: {
                         print("Next pressed")
                     }) {
-                        Image(systemName: "chevron.right") // Arrow icon
+                        Image(systemName: "chevron.right")
                             .foregroundColor(.black)
                             .font(.system(size: 20, weight: .bold))
                     }
@@ -38,7 +38,7 @@ struct BoardingPage: View {
                 
                 Spacer()
                 
-                // Welcome Text
+                
                 Text("Welcome to Wakeb!")
                     .font(.title)
                     .fontWeight(.bold)
@@ -46,7 +46,7 @@ struct BoardingPage: View {
                     .padding(.horizontal, 20)
                     .padding(.bottom, 10)
                 
-                // Subtitle Text
+            
                 Text("Scan, edit, and enhance text seamlessly with Wakeb's smart features!")
                     .font(.body)
                     .multilineTextAlignment(.center)
@@ -55,7 +55,7 @@ struct BoardingPage: View {
                 
                 Spacer()
                 
-                // Page Control Dots
+                
                 HStack(spacing: 8) {
                     Circle()
                         .fill(Color.gray)

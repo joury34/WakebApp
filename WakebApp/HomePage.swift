@@ -10,8 +10,8 @@ import SwiftUI
 struct HomePage: View {
     var body: some View {
         ZStack {
-            Color.offWhite // Set the background color for the entire screen
-                .ignoresSafeArea() // Ensures the color fills the entire screen
+            Color.offWhite
+                .ignoresSafeArea()
             
             VStack(spacing: 20) {
                 Text("Select the scanning method")
@@ -50,7 +50,7 @@ struct HomePage: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding(50)
-                    .background(Color.lightGreen) // Button background color remains white
+                    .background(Color.lightGreen)
                     .cornerRadius(10)
                     .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 5)
                 }
@@ -67,7 +67,7 @@ struct HomePage: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding(50)
-                    .background(Color.lightGreen) // Button background color remains white
+                    .background(Color.lightGreen)
                     .cornerRadius(10)
                     .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 5)
                 }

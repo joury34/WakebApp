@@ -27,7 +27,7 @@ struct ReadingPage: View {
                             .padding()
 
                         ForEach(0..<20) { _ in
-                            Text("Word word word word")                                .font(.system(size: fontSize))
+                            Text("Word word word word")                                 .font(.custom("Arial", size: fontSize))
                                 .kerning(wordSpacing) // Apply word spacing using kerning
                                 .padding([.leading, .trailing])
                                 .background(isAutoHighlightEnabled ? highlightColor.opacity(0.5) : Color.clear) // Auto highlight effect
@@ -138,12 +138,6 @@ struct SettingsSheetView: View {
                         Color("LightBlue")    // Soft blue
                     ]
                     
-                    let highlightColorNames: [String] = [
-                        "Light Yellow",
-                        "Soft Green",
-                        "Peach",
-                        "Light Blue"
-                    ]
                     
                     ForEach(0..<highlightColors.count, id: \.self) { index in
                         Circle()

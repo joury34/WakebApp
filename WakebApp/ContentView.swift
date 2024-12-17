@@ -26,7 +26,8 @@ struct ContentView: View {
                    
                     Text("الآثار    في    مفهومها    التاريخي   ،  هي    بقايا    التاريخ    ومعالمه   ،  وهي    تشمل     العمارة    القديمة    وما    في   المتاحف    من    تماثيل    وتُحف   . أما   في    مفهومها    اللغوي    فهي    جمع   كلمة    «أَثَرٌ»    أي    «العلامة»    أو   الدلالة    على    شيئ    معين    أو   سبيل    محدد    والتخصص    الذي   يُعنى    بدراستها    هو    علم    الآثار   .")
                     
-                        .font(.system(size: textSize))
+                      //  .font(.system(size: textSize))
+                        .font(.custom("AlQalam", size: textSize))
                         .kerning(wordSpacing) // Adjust word spacing
                     
                     
@@ -49,7 +50,7 @@ struct ContentView: View {
                             }
                         }
                         .navigationDestination(isPresented: $navigateToHome) {
-                            HomePage()  // Navigate to HomePage when the flag is true
+                            voiceover()  // Navigate to HomePage when the flag is true
                         }
                     
                     //go back to the home page

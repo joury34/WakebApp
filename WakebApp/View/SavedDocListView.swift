@@ -15,7 +15,7 @@ struct SavedDocListView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.offwhite
+                Color.offWhite
                     .ignoresSafeArea() // Background color for the entire view
                 
                 VStack {
@@ -122,7 +122,12 @@ struct SavedDocumentRow: View {
                             viewModel.renameDocument(at: index, newName: newName)
                         }
                     }
+                
+                Image(systemName: "pencil.line") // The square and pencil icon
+                    .foregroundColor(.black) // You can change the color to suit your UI
+                    .padding(.leading, 5) // Space between the text field and the icon
             }
+
 
             Text("Saved on: \(document.savedDate, formatter: dateFormatter)")
                 .font(.subheadline)

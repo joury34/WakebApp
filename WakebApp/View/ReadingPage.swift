@@ -4,20 +4,21 @@
 //
 //  Created by Reuof on 11/12/2024.
 //
+
 import SwiftUI
 
 struct ReadingPage: View {
     @State private var fontSize: Double = 14
     @State private var wordSpacing: Double = 1.5 // Default both word spacing and font size
-    @State private var isAutoHighlightEnabled: Bool = false
-    @State private var highlightColor: Color = Color("LightYellow")
-    
     @State private var showSettings = false // Toggle for showing settings
+    @State private var pageBackgroundColor: Color = Color("offwhite") // Default background color for the page (offwhite)
+    @State private var selectedFont: String = "Arial" // Default font (Arial)
 
     var body: some View {
         NavigationView {
             ZStack {
-                Color.offwhite
+                // Apply selected background color to the entire page
+                pageBackgroundColor
                     .ignoresSafeArea()
 
                 ScrollView { // Start of scrollable area
@@ -30,7 +31,6 @@ struct ReadingPage: View {
                             Text("Word word word word")                                 .font(.custom("Arial", size: fontSize))
                                 .kerning(wordSpacing) // Apply word spacing using kerning
                                 .padding([.leading, .trailing])
-                                .background(isAutoHighlightEnabled ? highlightColor.opacity(0.5) : Color.clear) // Auto highlight effect
                         }
                     }
                     .padding()
@@ -61,8 +61,6 @@ struct ReadingPage: View {
                         .foregroundColor(.black)
                     Image(systemName: "gearshape.fill")
                         .resizable()
-                        //.frame(width: 27, height: 27)
-                   
                         .foregroundColor(.black)
                 }
             )
@@ -72,15 +70,12 @@ struct ReadingPage: View {
                 SettingsSheetView(
                     fontSize: $fontSize,
                     wordSpacing: $wordSpacing,
-                    isAutoHighlightEnabled: $isAutoHighlightEnabled,
-                    highlightColor: $highlightColor
+                    pageBackgroundColor: $pageBackgroundColor // Now bind pageBackgroundColor
                 )
                 .presentationDetents([.height(350)]) // Limit the height of the sheet
                 .presentationDragIndicator(.visible) // Show drag indicator
                 .presentationBackground(.softy)
-          
             }
-            
         }
     }
 }
@@ -88,8 +83,7 @@ struct ReadingPage: View {
 struct SettingsSheetView: View {
     @Binding var fontSize: Double // Binding for font size
     @Binding var wordSpacing: Double // Binding for word spacing
-    @Binding var isAutoHighlightEnabled: Bool // Binding for auto highlight toggle
-    @Binding var highlightColor: Color // Binding for highlight color
+    @Binding var pageBackgroundColor: Color // Binding for page background color
 
     var body: some View {
         VStack {
@@ -113,53 +107,54 @@ struct SettingsSheetView: View {
                     .accentColor(Color("Sage"))
             }
 
-            // Auto Highlight Toggle
+            // Page Background Color Picker (Brown scale + Offwhite + New Color)
             VStack {
-                Toggle(isOn: $isAutoHighlightEnabled) {
-                    Text("Enable Highlight")
-                        .foregroundColor(Color.black)
-                }
-                .padding([.leading, .trailing])
-                .accessibilityLabel("Auto highlight toggle")
-                .accessibilityHint("Enable or disable auto highlight for text.")
-            }
-
-            // Highlight Color Picker
-            VStack {
-                Text("Highlight Color:")
+                Text("Background Color:")
                     .foregroundColor(Color.black)
                     .padding(.bottom, 10)
-                
-                HStack {
-                    let highlightColors: [Color] = [
-                        Color("LightYellow"), // Soft yellow
-                        Color("SoftGreen"),   // Light green
-                        Color("Peach"),       // Soft peach
-                        Color("LightBlue")    // Soft blue
+
+                // Stack for the color boxes
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))], spacing: 20) {
+                    let backgroundColors: [Color] = [
+                        Color("offwhite"),    // Default offwhite
+                        Color("LightBrown"),   // Light brown
+                        Color("yellowy"),      // Medium brown
+                        Color("lightgray")     // Light gray
+                    ]
+                    let colorNames: [String] = [
+                        "Origanl", "Calm", "Focus", "Paper"
+                        
                     ]
                     
-                    
-                    ForEach(0..<highlightColors.count, id: \.self) { index in
-                        Circle()
-                            .fill(highlightColors[index])
-                            .frame(width: 40, height: 40)
+                    ForEach(0..<backgroundColors.count, id: \.self) { index in
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(backgroundColors[index])
+                            .frame(height: 70)
                             .overlay(
-                                Circle().stroke(highlightColor == highlightColors[index] ? Color.sage : Color.gray, lineWidth: highlightColor == highlightColors[index] ? 3 : 1) // White border for selected, gray for others
+                                VStack {
+                                    Text(colorNames[index]) // Color name
+                                        .font(.caption)
+                                        .foregroundColor(Color.black)
+                                        .padding(.top, 25)
+                                    Spacer()
+                                }
                             )
-
+                            .padding(5)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(pageBackgroundColor == backgroundColors[index] ? Color("Sage") : Color.gray, lineWidth: 2) // Border to indicate selection
+                            )
                             .onTapGesture {
-                                highlightColor = highlightColors[index] // Set the highlight color
+                                // Allow selecting the same color (even if it's already selected)
+                                pageBackgroundColor = backgroundColors[index]
                             }
                     }
-
                 }
                 .padding([.leading, .trailing])
+                
             }
 
-         
         }
-     
-     
     }
 }
 

@@ -10,7 +10,7 @@ import SwiftUI
 struct HomePage: View {
     var body: some View {
         ZStack {
-            Color.offWhite
+            Color.offwhite
                 .ignoresSafeArea()
             
             VStack(spacing: 20) {
@@ -33,7 +33,7 @@ struct HomePage: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding(50)
-                    .background(Color.lightGreen)
+                    .background(Color.softy)
                     .cornerRadius(10)
                     .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 5)
                 }
@@ -50,7 +50,7 @@ struct HomePage: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding(50)
-                    .background(Color.lightGreen)
+                    .background(Color.softy)
                     .cornerRadius(10)
                     .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 5)
                 }
@@ -67,16 +67,19 @@ struct HomePage: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding(50)
-                    .background(Color.lightGreen)
+                    .background(Color.softy)
                     .cornerRadius(10)
                     .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 5)
                 }
             }
             .padding()
-        }
-    }
-}
+                  }
+                  .navigationBarBackButtonHidden(true)
+              }
+          }
 
 #Preview {
     HomePage()
 }
+
+

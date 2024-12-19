@@ -77,7 +77,7 @@ struct ReadingPage: View {
                 )
                 .presentationDetents([.height(350)]) // Limit the height of the sheet
                 .presentationDragIndicator(.visible) // Show drag indicator
-                .presentationBackground(.offwhite)
+                .presentationBackground(.softy)
           
             }
             
@@ -96,7 +96,7 @@ struct SettingsSheetView: View {
             // Font Size Slider
             VStack {
                 Text("Font Size: \(Int(fontSize))")
-                    .foregroundColor(Color("Sage"))
+                    .foregroundColor(Color.black)
                     .padding(.bottom, 10)
                 Slider(value: $fontSize, in: 14...24, step: 1)
                     .padding([.leading, .trailing])
@@ -106,7 +106,7 @@ struct SettingsSheetView: View {
             // Word Spacing Slider
             VStack {
                 Text("Word Spacing: \(String(format: "%.2f", wordSpacing))")
-                    .foregroundColor(Color("Sage"))
+                    .foregroundColor(Color.black)
                     .padding(.bottom, 10)
                 Slider(value: $wordSpacing, in: 0...8, step: 0.1)
                     .padding([.leading, .trailing])
@@ -117,7 +117,7 @@ struct SettingsSheetView: View {
             VStack {
                 Toggle(isOn: $isAutoHighlightEnabled) {
                     Text("Enable Highlight")
-                        .foregroundColor(Color("Sage"))
+                        .foregroundColor(Color.black)
                 }
                 .padding([.leading, .trailing])
                 .accessibilityLabel("Auto highlight toggle")
@@ -127,7 +127,7 @@ struct SettingsSheetView: View {
             // Highlight Color Picker
             VStack {
                 Text("Highlight Color:")
-                    .foregroundColor(Color("Sage"))
+                    .foregroundColor(Color.black)
                     .padding(.bottom, 10)
                 
                 HStack {

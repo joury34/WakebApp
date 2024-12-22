@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2BF6508C2D0EC28200885A46 /* PersistenceController.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6508A2D0EC28200885A46 /* PersistenceController.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		461D5B9B2D096FA000A5CE91 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,10 +28,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2BF6508B2D0EC28200885A46 /* PersistenceController.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PersistenceController.xcdatamodel; sourceTree = "<group>"; };
 		461D5B8A2D096F9E00A5CE91 /* WakebApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WakebApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		461D5B9A2D096FA000A5CE91 /* WakebAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WakebAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		461D5BA42D096FA000A5CE91 /* WakebAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WakebAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2B9A89A12D0AE7C90045CE2A /* Exceptions for "WakebAppTests" folder in "WakebAppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 461D5B992D096FA000A5CE91 /* WakebAppTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		461D5B8C2D096F9E00A5CE91 /* WakebApp */ = {
@@ -37,6 +52,9 @@
 		};
 		461D5B9D2D096FA000A5CE91 /* WakebAppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2B9A89A12D0AE7C90045CE2A /* Exceptions for "WakebAppTests" folder in "WakebAppTests" target */,
+			);
 			path = WakebAppTests;
 			sourceTree = "<group>";
 		};
@@ -75,6 +93,7 @@
 		461D5B812D096F9E00A5CE91 = {
 			isa = PBXGroup;
 			children = (
+				2BF6508A2D0EC28200885A46 /* PersistenceController.xcdatamodeld */,
 				461D5B8C2D096F9E00A5CE91 /* WakebApp */,
 				461D5B9D2D096FA000A5CE91 /* WakebAppTests */,
 				461D5BA72D096FA000A5CE91 /* WakebAppUITests */,
@@ -236,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BF6508C2D0EC28200885A46 /* PersistenceController.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,8 +416,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WakebApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 254AZ2D7LG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to scan text.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -424,8 +446,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WakebApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 254AZ2D7LG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to scan text.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -450,7 +474,9 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 254AZ2D7LG;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WakebAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Maram.WakebAppTests;
@@ -468,7 +494,9 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 254AZ2D7LG;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WakebAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Maram.WakebAppTests;
@@ -552,6 +580,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2BF6508A2D0EC28200885A46 /* PersistenceController.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2BF6508B2D0EC28200885A46 /* PersistenceController.xcdatamodel */,
+			);
+			currentVersion = 2BF6508B2D0EC28200885A46 /* PersistenceController.xcdatamodel */;
+			path = PersistenceController.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 461D5B822D096F9E00A5CE91 /* Project object */;
 }

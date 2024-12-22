@@ -2,23 +2,19 @@
 //  ContentView.swift
 //  WakebApp
 //
-//  Created by Maram Rabeh  on 10/06/1446 AH.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = TextScannerViewModel()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            CameraView(viewModel: viewModel)
+                .navigationTitle("Document Scanner")
+                .navigationBarHidden(true) 
         }
-        .padding()
     }
 }
-
 #Preview {
     ContentView()
 }

@@ -4,7 +4,6 @@
 //
 //  Created by Reuof on 11/12/2024.
 //
-
 import SwiftUI
 
 struct ReadingPage: View {
@@ -12,7 +11,7 @@ struct ReadingPage: View {
     @State private var wordSpacing: Double = 1.5 // Default both word spacing and font size
     @State private var showSettings = false // Toggle for showing settings
     @State private var pageBackgroundColor: Color = Color("offwhite") // Default background color for the page (offwhite)
-    @State private var selectedFont: String = "Arial" // Default font (Arial)
+    @State private var selectedFont: String = "Arial" // Default font (use PostScript name)
 
     var body: some View {
         NavigationView {
@@ -24,11 +23,12 @@ struct ReadingPage: View {
                 ScrollView { // Start of scrollable area
                     VStack(alignment: .leading, spacing: 10) { // Fixed line spacing
                         Text("Test text for scrolling:")
-                            .font(.system(size: fontSize))
+                            .font(.custom(selectedFont, size: fontSize)) // Use selected font
                             .padding()
 
-                        ForEach(0..<20) { _ in
-                            Text("Word word word word")                                 .font(.custom("Arial", size: fontSize))
+                        ForEach(0..<10) { _ in
+                            Text("English text هذا النص العربي")
+                                .font(.custom(selectedFont, size: fontSize)) // Use selected font
                                 .kerning(wordSpacing) // Apply word spacing using kerning
                                 .padding([.leading, .trailing])
                         }
@@ -36,10 +36,6 @@ struct ReadingPage: View {
                     .padding()
                 }
                 .scrollIndicators(.visible) // Show scroll bar
-                
-                VStack {
-                    Spacer()
-                }
             }
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(
@@ -66,13 +62,13 @@ struct ReadingPage: View {
             )
             // iOS sheet implementation
             .sheet(isPresented: $showSettings) {
-               
                 SettingsSheetView(
                     fontSize: $fontSize,
                     wordSpacing: $wordSpacing,
-                    pageBackgroundColor: $pageBackgroundColor // Now bind pageBackgroundColor
+                    pageBackgroundColor: $pageBackgroundColor, // Now bind pageBackgroundColor
+                    selectedFont: $selectedFont // Bind selectedFont to the sheet
                 )
-                .presentationDetents([.height(350)]) // Limit the height of the sheet
+                .presentationDetents([.height(400)]) // Limit the height of the sheet
                 .presentationDragIndicator(.visible) // Show drag indicator
                 .presentationBackground(.softy)
             }
@@ -84,9 +80,49 @@ struct SettingsSheetView: View {
     @Binding var fontSize: Double // Binding for font size
     @Binding var wordSpacing: Double // Binding for word spacing
     @Binding var pageBackgroundColor: Color // Binding for page background color
+    @Binding var selectedFont: String // Binding for selected font
 
+    let availableFonts = [
+        "Arial",
+        "Noto Sans Arabic",
+        "Lexie Readable",
+        "Maqroo-Regular", // Correct PostScript name for your custom font
+        "OpenDyslexic"
+    ]
+    
     var body: some View {
         VStack {
+            // Font Selection Section
+            HStack {
+                Text("Font type:")
+                    .foregroundColor(Color.black)
+                    .font(.body)
+                    .padding(.trailing, 10) // Add padding to space out the label
+                
+                // Use Menu instead of Picker for more control
+                Menu {
+                    ForEach(availableFonts, id: \.self) { font in
+                        Button(action: {
+                            selectedFont = font
+                        }) {
+                            Text(font)
+                                .foregroundColor(.black) // Set menu item text color to black
+                        }
+                    }
+                } label: {
+                    HStack {
+                        Text(" \(selectedFont)")
+                            .foregroundColor(.black) // Set selected font label text color
+                        Image(systemName: "chevron.down")
+                            .foregroundColor(.black) // Chevron icon color
+                    }
+                    .padding([.leading, .trailing])
+                    .background(Color.white)
+                    .cornerRadius(10)
+                }
+            }
+            .padding()
+
             // Font Size Slider
             VStack {
                 Text("Font Size: \(Int(fontSize))")
@@ -122,8 +158,7 @@ struct SettingsSheetView: View {
                         Color("lightgray")     // Light gray
                     ]
                     let colorNames: [String] = [
-                        "Origanl", "Calm", "Focus", "Paper"
-                        
+                        "Original", "Calm", "Focus", "Paper"
                     ]
                     
                     ForEach(0..<backgroundColors.count, id: \.self) { index in
@@ -141,8 +176,8 @@ struct SettingsSheetView: View {
                             )
                             .padding(5)
                             .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(pageBackgroundColor == backgroundColors[index] ? Color("Sage") : Color.gray, lineWidth: 2) // Border to indicate selection
+                                RoundedRectangle(cornerRadius: 17)
+                                    .stroke(pageBackgroundColor == backgroundColors[index] ? Color("Sage") : Color.white, lineWidth: 2) // Border to indicate selection
                             )
                             .onTapGesture {
                                 // Allow selecting the same color (even if it's already selected)
@@ -151,9 +186,7 @@ struct SettingsSheetView: View {
                     }
                 }
                 .padding([.leading, .trailing])
-                
             }
-
         }
     }
 }

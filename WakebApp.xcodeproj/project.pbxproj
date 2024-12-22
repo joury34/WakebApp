@@ -29,9 +29,42 @@
 		461D5BA42D096FA000A5CE91 /* WakebAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WakebAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B1ECCCB92D16EB9A00610DDD /* Exceptions for "WakebApp" folder in "WakebApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 461D5B892D096F9E00A5CE91 /* WakebApp */;
+		};
+		B1ECCCBE2D16EC6F00610DDD /* Exceptions for "WakebAppUITests" folder in "WakebApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"LexieReadable-Regular.ttf",
+				"Maqroo-Regular.otf",
+				"NotoSansArabic-VariableFont_wdth,wght.ttf",
+				"OpenDyslexic-Regular.otf",
+			);
+			target = 461D5B892D096F9E00A5CE91 /* WakebApp */;
+		};
+		B1ECCCBF2D16EC6F00610DDD /* Exceptions for "WakebAppUITests" folder in "WakebAppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"LexieReadable-Regular.ttf",
+				"Maqroo-Regular.otf",
+				"NotoSansArabic-VariableFont_wdth,wght.ttf",
+				"OpenDyslexic-Regular.otf",
+			);
+			target = 461D5B992D096FA000A5CE91 /* WakebAppTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		461D5B8C2D096F9E00A5CE91 /* WakebApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B1ECCCB92D16EB9A00610DDD /* Exceptions for "WakebApp" folder in "WakebApp" target */,
+			);
 			path = WakebApp;
 			sourceTree = "<group>";
 		};
@@ -42,6 +75,10 @@
 		};
 		461D5BA72D096FA000A5CE91 /* WakebAppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B1ECCCBE2D16EC6F00610DDD /* Exceptions for "WakebAppUITests" folder in "WakebApp" target */,
+				B1ECCCBF2D16EC6F00610DDD /* Exceptions for "WakebAppUITests" folder in "WakebAppTests" target */,
+			);
 			path = WakebAppUITests;
 			sourceTree = "<group>";
 		};
@@ -399,6 +436,7 @@
 				DEVELOPMENT_TEAM = 2XSY2BML5W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WakebApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -428,6 +466,7 @@
 				DEVELOPMENT_TEAM = 2XSY2BML5W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WakebApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

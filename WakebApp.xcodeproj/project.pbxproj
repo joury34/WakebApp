@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B1A188C52D17F30D00392F35 /* PersistenceController.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1A188C32D17F30D00392F35 /* PersistenceController.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		461D5B9B2D096FA000A5CE91 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		461D5B8A2D096F9E00A5CE91 /* WakebApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WakebApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		461D5B9A2D096FA000A5CE91 /* WakebAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WakebAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		461D5BA42D096FA000A5CE91 /* WakebAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WakebAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1A188C42D17F30D00392F35 /* PersistenceController.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PersistenceController.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -112,6 +117,7 @@
 		461D5B812D096F9E00A5CE91 = {
 			isa = PBXGroup;
 			children = (
+				B1A188C32D17F30D00392F35 /* PersistenceController.xcdatamodeld */,
 				461D5B8C2D096F9E00A5CE91 /* WakebApp */,
 				461D5B9D2D096FA000A5CE91 /* WakebAppTests */,
 				461D5BA72D096FA000A5CE91 /* WakebAppUITests */,
@@ -273,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1A188C52D17F30D00392F35 /* PersistenceController.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +444,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WakebApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to scan text.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -467,6 +475,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WakebApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to scan text.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -491,6 +500,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2XSY2BML5W;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
@@ -509,6 +519,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2XSY2BML5W;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
@@ -593,6 +604,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B1A188C32D17F30D00392F35 /* PersistenceController.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B1A188C42D17F30D00392F35 /* PersistenceController.xcdatamodel */,
+			);
+			currentVersion = B1A188C42D17F30D00392F35 /* PersistenceController.xcdatamodel */;
+			path = PersistenceController.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 461D5B822D096F9E00A5CE91 /* Project object */;
 }

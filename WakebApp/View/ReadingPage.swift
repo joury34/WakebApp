@@ -6,12 +6,90 @@
 //
 import SwiftUI
 
+
+//struct ReadingPage: View {
+//    @State private var fontSize: Double = 14
+//    @State private var wordSpacing: Double = 1.5 // Default both word spacing and font size
+//    @State private var showSettings = false // Toggle for showing settings
+//    @State private var pageBackgroundColor: Color = Color("offwhite") // Default background color for the page (offwhite)
+//    @State private var selectedFont: String = "Arial" // Default font (use PostScript name)
+//    
+//    var extractedText: String  // Text passed from ExtractedText
+//
+//    var body: some View {
+//        NavigationView {
+//            ZStack {
+//                // Apply selected background color to the entire page
+//                pageBackgroundColor
+//                    .ignoresSafeArea()
+//
+//                ScrollView { // Start of scrollable area
+//                    VStack(alignment: .leading, spacing: 10) { // Fixed line spacing
+//                        Text(extractedText)  // Display the extracted text
+//                            .font(.custom(selectedFont, size: fontSize)) // Use selected font
+//                            .kerning(wordSpacing) // Apply word spacing using kerning
+//                            .padding([.leading, .trailing])
+//                    }
+//                    .padding()
+//                }
+//                .scrollIndicators(.visible) // Show scroll bar
+//            }
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarLeading) {
+//                    NavigationLink(destination: HomePage()) {
+//                        HStack {
+//                            Image(systemName: "chevron.left")
+//                                .resizable()
+//                                .frame(width: 20, height: 20)
+//                            Text("Back")
+//                        }
+//                        .foregroundColor(.black)
+//                    }
+//                }
+//                
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    Button(action: {
+//                        showSettings.toggle() // Toggle settings visibility
+//                    }) {
+//                        Text("Settings")
+//                            .foregroundColor(.black)
+//                        Image(systemName: "gearshape.fill")
+//                            .resizable()
+//                            .foregroundColor(.black)
+//                    }
+//                }
+//                
+//            }
+//        }
+//        // iOS sheet implementation for settings
+//        .sheet(isPresented: $showSettings) {
+//            SettingsSheetView(
+//                fontSize: $fontSize,
+//                wordSpacing: $wordSpacing,
+//                pageBackgroundColor: $pageBackgroundColor, // Now bind pageBackgroundColor
+//                selectedFont: $selectedFont // Bind selectedFont to the sheet
+//            )
+//            .presentationDetents([.height(400)]) // Limit the height of the sheet
+//            .presentationDragIndicator(.visible) // Show drag indicator
+//            .presentationBackground(.softy)
+//        }
+//        .navigationBarBackButtonHidden(true)
+//    }
+//       // .navigationBarBackButtonHidden(true)
+//}
+import SwiftUI
+
 struct ReadingPage: View {
     @State private var fontSize: Double = 14
     @State private var wordSpacing: Double = 1.5 // Default both word spacing and font size
     @State private var showSettings = false // Toggle for showing settings
     @State private var pageBackgroundColor: Color = Color("offwhite") // Default background color for the page (offwhite)
     @State private var selectedFont: String = "Arial" // Default font (use PostScript name)
+    
+    @StateObject private var savedDocumentViewModel = SavedDocumentViewModel() // ViewModel for saved docs
+    @State private var navigateToSavedView = false // State to trigger navigation
+    
+    var extractedText: String  // Text passed from ExtractedText
 
     var body: some View {
         NavigationView {
@@ -22,57 +100,84 @@ struct ReadingPage: View {
 
                 ScrollView { // Start of scrollable area
                     VStack(alignment: .leading, spacing: 10) { // Fixed line spacing
-                        Text("Test text for scrolling:")
+                        Text(extractedText)  // Display the extracted text
                             .font(.custom(selectedFont, size: fontSize)) // Use selected font
-                            .padding()
-
-                        ForEach(0..<10) { _ in
-                            Text("English text هذا النص العربي")
-                                .font(.custom(selectedFont, size: fontSize)) // Use selected font
-                                .kerning(wordSpacing) // Apply word spacing using kerning
-                                .padding([.leading, .trailing])
-                        }
+                            .kerning(wordSpacing) // Apply word spacing using kerning
+                            .padding([.leading, .trailing])
                     }
                     .padding()
                 }
                 .scrollIndicators(.visible) // Show scroll bar
-            }
-            .navigationBarTitle("", displayMode: .inline)
-            .navigationBarItems(
-                leading: Button(action: {
-                    // Handle Back action (e.g., pop the navigation stack)
-                }) {
+                
+                // Save button at the bottom-right
+                VStack {
+                    Spacer()
                     HStack {
-                        Image(systemName: "chevron.left")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                        Text("Back")
+                        Spacer()
+                        Button(action: saveDocument) {
+                            Image(systemName: "doc.fill")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .padding()
+                                .background(Color.white.opacity(0.7))
+                                .foregroundColor(.black)
+                                .clipShape(Circle())
+                                .shadow(radius: 5)
+                        }
+                        .padding(.bottom, 30)
+                        .padding(.trailing, 15)
                     }
-                    .foregroundColor(.black)
-                },
-                trailing: Button(action: {
-                    showSettings.toggle() // Toggle settings visibility
-                }) {
-                    Text("Settings")
-                        .foregroundColor(.black)
-                    Image(systemName: "gearshape.fill")
-                        .resizable()
-                        .foregroundColor(.black)
                 }
-            )
-            // iOS sheet implementation
-            .sheet(isPresented: $showSettings) {
-                SettingsSheetView(
-                    fontSize: $fontSize,
-                    wordSpacing: $wordSpacing,
-                    pageBackgroundColor: $pageBackgroundColor, // Now bind pageBackgroundColor
-                    selectedFont: $selectedFont // Bind selectedFont to the sheet
-                )
-                .presentationDetents([.height(400)]) // Limit the height of the sheet
-                .presentationDragIndicator(.visible) // Show drag indicator
-                .presentationBackground(.softy)
+                
+                // NavigationLink to trigger navigation to SavedDocListView
+                NavigationLink(destination: SavedDocListView(), isActive: $navigateToSavedView) {
+                    EmptyView()
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    NavigationLink(destination: HomePage()) {
+                        HStack {
+                            Image(systemName: "chevron.left")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                            Text("Back")
+                        }
+                        .foregroundColor(.black)
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        showSettings.toggle() // Toggle settings visibility
+                    }) {
+                        Text("Settings")
+                            .foregroundColor(.black)
+                        Image(systemName: "gearshape.fill")
+                            .resizable()
+                            .foregroundColor(.black)
+                    }
+                }
             }
         }
+        .sheet(isPresented: $showSettings) {
+            SettingsSheetView(
+                fontSize: $fontSize,
+                wordSpacing: $wordSpacing,
+                pageBackgroundColor: $pageBackgroundColor, // Now bind pageBackgroundColor
+                selectedFont: $selectedFont // Bind selectedFont to the sheet
+            )
+            .presentationDetents([.height(400)]) // Limit the height of the sheet
+            .presentationDragIndicator(.visible) // Show drag indicator
+            .presentationBackground(.softy)
+        }
+        .navigationBarBackButtonHidden(true)
+    }
+
+    // Function to save the document and trigger navigation to SavedDocListView
+    private func saveDocument() {
+        savedDocumentViewModel.addSavedDocument(content: extractedText)
+        navigateToSavedView = true // Trigger the navigation to SavedDocListView
     }
 }
 
@@ -193,6 +298,6 @@ struct SettingsSheetView: View {
 
 struct ReadingPage_Previews: PreviewProvider {
     static var previews: some View {
-        ReadingPage()
+        ReadingPage(extractedText: "Sample extracted text here هذا نص عربي ...")
     }
 }

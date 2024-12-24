@@ -117,7 +117,7 @@ class ViewController: UIViewController {
         let button = UIButton(frame: CGRect(x: view.bounds.width - 90, y: view.bounds.height - 100, width: 80, height: 40))
         button.setTitle("Save", for: .normal)
         button.setTitleColor(.white, for: .focused)
-        button.backgroundColor = .systemBlue
+        button.backgroundColor = .sage
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(savePhoto), for: .touchUpInside)
         return button

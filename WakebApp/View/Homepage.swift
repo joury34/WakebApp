@@ -13,6 +13,7 @@ struct HomePage: View {
     @StateObject private var viewModel = TextScannerViewModel()
     @State private var isTextViewPresented = false
     @State private var isSaveDocumentPresented  = false
+    @StateObject private var savedDocumentViewModel = SavedDocumentViewModel()  // Added this line
 
     var body: some View {
         NavigationStack {
@@ -96,10 +97,14 @@ struct HomePage: View {
                         .cornerRadius(10)
                         .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 5)
                     }
-                    NavigationLink(destination:SavedDocListView(), isActive: $isSaveDocumentPresented){
-                                    EmptyView()
-                                }
+//                    NavigationLink(destination:SavedDocListView(), isActive: $isSaveDocumentPresented){
+//                                    EmptyView()
+//                                }
                     
+                    NavigationLink(destination: SavedDocListView(viewModel: savedDocumentViewModel), isActive: $isSaveDocumentPresented) {
+                                            EmptyView() // This will trigger the navigation when isSaveDocumentPresented is true
+                                        }
+
 
                     // Navigate to ExtractedText view if text is recognized
                     NavigationLink(destination: ExtractedText(recognizedText: viewModel.recognizedText), isActive: $isTextViewPresented) {

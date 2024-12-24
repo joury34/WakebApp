@@ -145,6 +145,8 @@
 import SwiftUI
 
 struct BoardingPage: View {
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
+    
     init() {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor.sage
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.lighttGray
@@ -192,6 +194,8 @@ struct BoardingPage: View {
 }
 
 struct OnboardingPageView: View {
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
+    
     var title: String
     var description: String
     var imageName: String
@@ -204,12 +208,11 @@ struct OnboardingPageView: View {
                 HStack {
                     if showSkipButton {
                         Button(action: {
-                            // Mark onboarding as completed
-                            UserDefaults.standard.set(true, forKey: "hasSeenOnboarding")
-                        }) {
-                            NavigationLink(destination: HomePage()) {
-                                Text("SKIP")
-                                    .foregroundColor(.black)
+                                            UserDefaults.standard.set(true, forKey: "hasSeenOnboarding")
+                                        }) {
+                                            NavigationLink(destination: HomePage()) {
+                                                Text(showStartButton ? "START" : "SKIP")
+                                                    .foregroundColor(showStartButton ? .sage : .black)
                                     .font(.system(size: 16, weight: .bold))
                             }
                             Spacer()

@@ -7,10 +7,10 @@
 import UIKit
 import Combine
 import SwiftUICore
+import SwiftUI
 
 class TextDisplayViewController: UIViewController {
     @ObservedObject var viewModel: TextScannerViewModel
-    private var textView: UITextView!
     private var cancellables: Set<AnyCancellable> = []
 
     init(viewModel: TextScannerViewModel) {
@@ -24,26 +24,36 @@ class TextDisplayViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTextView()
-        
-        // Observe changes to recognizedText and update the textView
+        setupNavigationButton()
+
+        // Observe changes to recognizedText
         viewModel.$recognizedText
-            .receive(on: DispatchQueue.main) // Ensure UI updates are on the main thread
-            .assign(to: \.text, on: textView) // Bind textView's text to recognizedText
-            .store(in: &cancellables) // Store the cancellable to avoid memory leaks
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                // Handle updates if necessary
+            }
+            .store(in: &cancellables)
     }
 
-    private func setupTextView() {
-        textView = UITextView(frame: view.bounds)
-        textView.isEditable = false
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(textView)
+    private func setupNavigationButton() {
+        let viewTextButton = UIButton(type: .system)
+        viewTextButton.setTitle("Confirm", for: .normal)
+        viewTextButton.addTarget(self, action: #selector(navigateToExtractedTextPage), for: .touchUpInside)
+        viewTextButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(viewTextButton)
 
+        // Layout the button
         NSLayoutConstraint.activate([
-            textView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            textView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            textView.topAnchor.constraint(equalTo: view.topAnchor),
-            textView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            viewTextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            viewTextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
+    }
+    @objc private func navigateToExtractedTextPage() {
+        // Use the correct name for the parameter in the ExtractedText view
+        let extractedTextPage = ExtractedText(recognizedText: viewModel.recognizedText)
+        let hostingController = UIHostingController(rootView: extractedTextPage)
+
+        // Navigate to the ExtractedText page
+        navigationController?.pushViewController(hostingController, animated: true)
     }
 }

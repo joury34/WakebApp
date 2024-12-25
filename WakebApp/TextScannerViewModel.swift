@@ -6,7 +6,7 @@ import UIKit
 class TextScannerViewModel: ObservableObject {
     @Published var recognizedText: String = ""
     public var capturedPhoto: UIImage?
-
+    @Published var savedDocuments: [SavedDocument] = []
     // Completion handler to notify when text extraction is done
     var onTextExtracted: (() -> Void)?
 
@@ -74,4 +74,9 @@ class TextScannerViewModel: ObservableObject {
         }
         processCapturedImage(image)
     }
+    func saveDocument(title: String) {
+            let newDocument = SavedDocument(title: title, content: recognizedText, date: Date())
+            savedDocuments.append(newDocument)
+            // Optionally, save to file or persistent storage
+        }
 }

@@ -14,12 +14,7 @@ struct WakebAppApp: App {
     var body: some Scene {
         WindowGroup {
             splashscreenview()
-           // LaunchView()
-           // ContentView()
-            //ReadingPage()
 
-        // HomePage()
-           // ContentView()
 
         }
     }

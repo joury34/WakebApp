@@ -8,9 +8,8 @@
 import Foundation
 
 struct SavedDocument: Identifiable {
-    var id = UUID()  // Unique identifier for each document
-    var name: String
-    var savedDate: Date
+    var id = UUID()
+    var title: String
     var content: String
+    var date: Date
 }
-

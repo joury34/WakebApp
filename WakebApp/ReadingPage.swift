@@ -399,6 +399,7 @@ struct ReadingPage: View {
     struct ReadingPage_Previews: PreviewProvider {
         static var previews: some View {
             ReadingPage(extractedText: "Sample extracted text here هذا نص عربي ...")
+              .environment(\.locale, .init(identifier: "ar"))
         }
     }
 

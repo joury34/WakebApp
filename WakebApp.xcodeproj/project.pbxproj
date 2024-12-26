@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4699E71C2D1C0A0400B606C2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4699E71B2D1C0A0400B606C2 /* Localizable.xcstrings */; };
+		4699E71E2D1C125300B606C2 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4699E71D2D1C125300B606C2 /* InfoPlist.xcstrings */; };
 		B1A188C52D17F30D00392F35 /* PersistenceController.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1A188C32D17F30D00392F35 /* PersistenceController.xcdatamodeld */; };
 		B1E9A41F2D1A8BB100B56622 /* PersistenceDocuments.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1E9A41D2D1A8BB100B56622 /* PersistenceDocuments.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,8 @@
 		461D5B8A2D096F9E00A5CE91 /* WakebApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WakebApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		461D5B9A2D096FA000A5CE91 /* WakebAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WakebAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		461D5BA42D096FA000A5CE91 /* WakebAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WakebAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4699E71B2D1C0A0400B606C2 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		4699E71D2D1C125300B606C2 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		B1A188C42D17F30D00392F35 /* PersistenceController.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PersistenceController.xcdatamodel; sourceTree = "<group>"; };
 		B1E9A41E2D1A8BB100B56622 /* PersistenceDocuments.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PersistenceDocuments.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +123,8 @@
 		461D5B812D096F9E00A5CE91 = {
 			isa = PBXGroup;
 			children = (
+				4699E71B2D1C0A0400B606C2 /* Localizable.xcstrings */,
+				4699E71D2D1C125300B606C2 /* InfoPlist.xcstrings */,
 				B1A188C32D17F30D00392F35 /* PersistenceController.xcdatamodeld */,
 				B1E9A41D2D1A8BB100B56622 /* PersistenceDocuments.xcdatamodeld */,
 				461D5B8C2D096F9E00A5CE91 /* WakebApp */,
@@ -238,6 +244,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 461D5B812D096F9E00A5CE91;
 			minimizedProjectReferenceProxies = 1;
@@ -258,6 +265,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4699E71C2D1C0A0400B606C2 /* Localizable.xcstrings in Resources */,
+				4699E71E2D1C125300B606C2 /* InfoPlist.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +385,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -432,6 +442,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -444,7 +455,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WakebApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 2XSY2BML5W;
+				DEVELOPMENT_TEAM = M6L5Y5JY9X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WakebApp/Info.plist;
@@ -475,7 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WakebApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 2XSY2BML5W;
+				DEVELOPMENT_TEAM = M6L5Y5JY9X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WakebApp/Info.plist;

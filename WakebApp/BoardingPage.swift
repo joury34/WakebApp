@@ -14,7 +14,7 @@ struct BoardingPage: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(UIColor(.offwhite)) // Background color
+                Color(UIColor(.offWhite)) // Background color
                     .ignoresSafeArea()
                 
                 TabView {

@@ -18,7 +18,7 @@ struct HomePage: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.offwhite
+                Color.offWhite
                     .ignoresSafeArea()
 
                 VStack(spacing: 20) {
@@ -43,7 +43,7 @@ struct HomePage: View {
                         }
                         .frame(maxWidth: .infinity)
                         .padding(50)
-                        .background(Color.lightGreen)
+                        .background(Color.softy)
                         .cornerRadius(10)
                         .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 5)
                     })
@@ -61,7 +61,7 @@ struct HomePage: View {
                         }
                         .frame(maxWidth: .infinity)
                         .padding(50)
-                        .background(Color.lightGreen)
+                        .background(Color.softy)
                         .cornerRadius(10)
                         .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 5)
                     }
@@ -85,15 +85,15 @@ struct HomePage: View {
                         isSavedDocumentsPresented = true // Navigate to saved documents
                     }) {
                         HStack {
-                            Text("Save Recognized Text")
+                            Text("Saved doucements")
                                 .font(.headline)
                                 .foregroundColor(.black)
-                            Image(systemName: "square.and.arrow.down")
+                            Image(systemName: "document.fill")
                                 .foregroundColor(.black)
                         }
                         .frame(maxWidth: .infinity)
                         .padding(50)
-                        .background(Color.lightGreen)
+                        .background(Color.softy)
                         .cornerRadius(10)
                         .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 5)
                     }
@@ -165,7 +165,7 @@ struct SavedDocumentsView: View {
                     Text(document.title)
                 }
             }
-            .navigationTitle("Saved Documents")
+            .navigationTitle("Saved Document")
   
         }
     }

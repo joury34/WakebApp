@@ -539,14 +539,14 @@ struct SettingsSheetView: View {
                 
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))], spacing: 20) {
                     let backgroundColors: [Color] = [
-                        Color("offwhite"),
-                        Color("LightBrown"),
-                        Color("yellowy"),
-                        Color("lightgray")
-                    ]
-                    let colorNames: [String] = [
-                        "Original", "Calm", "Focus", "Paper"
-                    ]
+                            Color("offwhite"),    // Default offwhite
+                            Color("LightBrown"),  // Light brown
+                            Color("yellowy"),     // Medium brown
+                            Color("lightgray")    // Light gray
+                        ]
+                        let colorNames: [LocalizedStringKey] = [
+                            "Original", "Calm", "Focus", "Paper"
+                        ]
                     
                     ForEach(0..<backgroundColors.count, id: \.self) { index in
                         RoundedRectangle(cornerRadius: 10)

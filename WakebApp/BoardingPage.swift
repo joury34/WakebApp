@@ -14,37 +14,37 @@ struct BoardingPage: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(UIColor(.offwhite)) // Background color
+                Color(UIColor(.offWhite)) // Background color
                     .ignoresSafeArea()
                 
                 TabView {
-                    OnboardingPageView(
-                        title: "Welcome to Wakeb!",
-                        description: "Scan, edit, and enhance text seamlessly with Wakeb's smart features!",
-                        imageName: "text.viewfinder", // Adjust your image name
-                        showStartButton: false,
-                        showSkipButton: true
-                    )
-                    .tag(0)
-                    
-                    OnboardingPageView(
-                        title: "Scan and Upload Text",
-                        description: "Easily scan documents using your camera or upload files from your device.",
-                        imageName: "doc.viewfinder", // Adjust your image name
-                        showStartButton: false,
-                        showSkipButton: true
-                    )
-                    .tag(1)
-                    
-                    OnboardingPageView(
-                        title: "Customize Your Reading Experience",
-                        description: "Adjust fonts, spacing, and more for accessible and personalized reading experience.",
-                        imageName: "slider.horizontal.3", // Adjust your image name
-                        showStartButton: true,
-                        showSkipButton: false
-                    )
-                    .tag(2)
-                    .padding(.top, 240)
+                                    OnboardingPageView(
+                                        title: NSLocalizedString("Welcome to Wakeb", comment: "Welcome to Wakeb"),
+                                        description: NSLocalizedString("Scan, edit, and enhance text seamlessly with Wakeb's smart features!", comment: "Welcome page description"),
+                                        imageName: "text.viewfinder", // Adjust your image name
+                                        showStartButton: false,
+                                        showSkipButton: true
+                                    )
+                                    .tag(0)
+
+                                    OnboardingPageView(
+                                        title: NSLocalizedString("Scan and Upload Text", comment: "Scan and Upload Text"),
+                                        description: NSLocalizedString("Easily scan documents using your camera or upload files from your device.", comment: "Easily scan documents using your camera or upload files from your device"),
+                                        imageName: "doc.viewfinder", // Adjust your image name
+                                        showStartButton: false,
+                                        showSkipButton: true
+                                    )
+                                    .tag(1)
+
+                                    OnboardingPageView(
+                                        title: NSLocalizedString("Customize Your Reading Experience", comment: "Customize Your Reading Experience"),
+                                        description: NSLocalizedString("Adjust fonts, spacing, and more for accessible and personalized reading experience.", comment: "Adjust fonts, spacing, and more for accessible and personalized reading experience."),
+                                        imageName: "slider.horizontal.3", // Adjust your image name
+                                        showStartButton: true,
+                                        showSkipButton: false
+                                    )
+                                    .tag(2)
+                                    .padding(.top, 240)
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
             }
@@ -65,6 +65,7 @@ struct OnboardingPageView: View {
         VStack {
             ZStack {
                 HStack {
+                    Spacer()
                     if showSkipButton {
                         Button(action: {
                                             UserDefaults.standard.set(true, forKey: "hasSeenOnboarding")
@@ -73,6 +74,8 @@ struct OnboardingPageView: View {
                                                 Text(showStartButton ? "START" : "SKIP")
                                                     .foregroundColor(showStartButton ? .sage : .black)
                                     .font(.system(size: 16, weight: .bold))
+                                    .padding(.horizontal, 10)
+                                    .padding(.vertical, 10)
                             }
                             Spacer()
                                 .padding(.horizontal, 20)

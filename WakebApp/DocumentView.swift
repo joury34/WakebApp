@@ -15,7 +15,7 @@ struct DocumentView: View {
     var body: some View {
         ScrollView {
             ZStack {
-                Color.offwhite
+                Color.offWhite
                     .ignoresSafeArea()
          
                 Text(document.content)

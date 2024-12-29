@@ -11,6 +11,17 @@
         }
       }
     },
+    "Adjust fonts, spacing, and more for accessible and personalized reading experience." : {
+      "comment" : "Adjust fonts, spacing, and more for accessible and personalized reading experience.",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قم بتعديل الخطوط، التباعد، والمزيد لتوفير تجربة قراءة مخصصة وسهلة الوصول."
+          }
+        }
+      }
+    },
     "Back" : {
       "localizations" : {
         "ar" : {
@@ -31,6 +42,16 @@
         }
       }
     },
+    "Calm" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "هادئ"
+          }
+        }
+      }
+    },
     "Confirm" : {
       "localizations" : {
         "ar" : {
@@ -41,12 +62,44 @@
         }
       }
     },
+    "Customize Your Reading Experience" : {
+      "comment" : "Customize Your Reading Experience",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "خصّص تجربة قراءتك."
+          }
+        }
+      }
+    },
     "Document Scanner" : {
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "مسح الملف"
+          }
+        }
+      }
+    },
+    "Easily scan documents using your camera or upload files from your device." : {
+      "comment" : "Easily scan documents using your camera or upload files from your device",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قم بمسح المستندات بسهولة باستخدام الكاميرا أو تحميل الملفات من جهازك."
+          }
+        }
+      }
+    },
+    "Focus" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تركيز"
           }
         }
       }
@@ -82,7 +135,14 @@
       }
     },
     "Line Spacing: %@" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تباعد الأسطر %@"
+          }
+        }
+      }
     },
     "Original" : {
       "extractionState" : "manual",
@@ -90,7 +150,17 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "اختبار "
+            "value" : "الأصلي"
+          }
+        }
+      }
+    },
+    "Paper" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ورق"
           }
         }
       }
@@ -121,6 +191,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "الملفات المحفوظة "
+          }
+        }
+      }
+    },
+    "Scan and Upload Text" : {
+      "comment" : "Scan and Upload Text",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مسح النصوص وتحميلها."
+          }
+        }
+      }
+    },
+    "Scan, edit, and enhance text seamlessly with Wakeb's smart features!" : {
+      "comment" : "Welcome page description",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قم بمسح النصوص وتحريرها وتحسينها بكل سلاسة باستخدام الميزات الذكية من واكب!"
           }
         }
       }
@@ -181,6 +273,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "تحميل من الصور"
+          }
+        }
+      }
+    },
+    "Welcome to Wakeb" : {
+      "comment" : "Welcome to Wakeb",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اهلاً بك في واكب!"
           }
         }
       }

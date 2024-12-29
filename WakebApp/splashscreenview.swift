@@ -23,7 +23,7 @@ struct splashscreenview: View {
             HomePage()
         } else {
             ZStack {
-                Color.offWhite
+                Color.offwhite
                     .ignoresSafeArea()
                 
                 VStack {

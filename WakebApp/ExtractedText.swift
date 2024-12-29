@@ -7,7 +7,7 @@ struct ExtractedText: View {
 
     var body: some View {
         ZStack {
-            Color.offWhite
+            Color.offwhite
                 .ignoresSafeArea()
             VStack {
                 Text(recognizedText)  // Display the extracted text

@@ -18,7 +18,7 @@ struct HomePage: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.offWhite
+                Color.offwhite
                     .ignoresSafeArea()
 
                 VStack(spacing: 20) {

@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import PhotosUI
+import AVFoundation
 
 struct HomePage: View {
     @State private var isPickerPresented = false
@@ -14,7 +15,11 @@ struct HomePage: View {
     @State private var isTextViewPresented = false
     @State private var documentTitle: String = "Untitled Document" // Default title for saved documents
     @State private var isSavedDocumentsPresented = false // State to control saved documents view
+    @State private var Player: AVAudioPlayer?
 
+   // var Player: AVAudioPlayer?
+
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -47,10 +52,17 @@ struct HomePage: View {
                         .cornerRadius(10)
                         .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 5)
                     })
+                    .simultaneousGesture(TapGesture().onEnded {
+                        playSound()
+                        print("FF")
+                    })
+                        
 
+                   
                     // Button to upload from album
                     Button(action: {
                         isPickerPresented = true
+
                     }) {
                         HStack {
                             Text("Upload from album")
@@ -64,7 +76,10 @@ struct HomePage: View {
                         .background(Color.softy)
                         .cornerRadius(10)
                         .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 5)
-                    }
+                    }.simultaneousGesture(TapGesture().onEnded {
+                        playSound()
+                        print("FF")
+                    })
                     .sheet(isPresented: $isPickerPresented) {
                         PhotoPicker(selectedImage: $selectedImage)
                             .onChange(of: selectedImage) { newImage in
@@ -83,6 +98,7 @@ struct HomePage: View {
                         viewModel.saveDocument(title: documentTitle)
                         viewModel.recognizedText = "" // Optionally reset recognized text
                         isSavedDocumentsPresented = true // Navigate to saved documents
+           
                     }) {
                         HStack {
                             Text("Saved doucements")
@@ -96,7 +112,10 @@ struct HomePage: View {
                         .background(Color.softy)
                         .cornerRadius(10)
                         .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 5)
-                    }
+                    }.simultaneousGesture(TapGesture().onEnded {
+                        playSound()
+                        print("FF")
+                    })
                     .sheet(isPresented: $isSavedDocumentsPresented) {
                         SavedDocumentsView(viewModel: viewModel)
                     }
@@ -108,7 +127,7 @@ struct HomePage: View {
                     }
                 }
                 .padding()
-                //.navigationBarBackButtonHidden(true)
+           
             }
         }.navigationBarBackButtonHidden(true)
     }
@@ -152,6 +171,19 @@ struct HomePage: View {
             }
         }
     }
+    
+    func playSound() {
+                 guard let soundURL = Bundle.main.url(forResource: "buttonClick", withExtension: "mp3") else {
+                     return
+                 }
+                 do {
+                    Player = try AVAudioPlayer(contentsOf: soundURL)
+                    Player?.play()
+                 } catch {
+                     print("Error playing sound: \(error.localizedDescription)")
+                 }
+             }
+         
 }
 
 // View to display saved documents
@@ -170,7 +202,8 @@ struct SavedDocumentsView: View {
         }
     }
 }
-
+                                         
 #Preview {
     HomePage()
 }
+                    

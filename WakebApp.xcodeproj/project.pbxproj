@@ -41,6 +41,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		46BDAE232D22801700504640 /* Exceptions for "WakebApp" folder in "WakebAppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				buttonClick.mp3,
+			);
+			target = 461D5B992D096FA000A5CE91 /* WakebAppTests */;
+		};
+		46BDAE242D22801700504640 /* Exceptions for "WakebApp" folder in "WakebAppUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				buttonClick.mp3,
+			);
+			target = 461D5BA32D096FA000A5CE91 /* WakebAppUITests */;
+		};
 		B1ECCCB92D16EB9A00610DDD /* Exceptions for "WakebApp" folder in "WakebApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -75,6 +89,8 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				B1ECCCB92D16EB9A00610DDD /* Exceptions for "WakebApp" folder in "WakebApp" target */,
+				46BDAE232D22801700504640 /* Exceptions for "WakebApp" folder in "WakebAppTests" target */,
+				46BDAE242D22801700504640 /* Exceptions for "WakebApp" folder in "WakebAppUITests" target */,
 			);
 			path = WakebApp;
 			sourceTree = "<group>";
@@ -455,7 +471,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WakebApp/Preview Content\"";
-				DEVELOPMENT_TEAM = QFADMQJHDK;
+				DEVELOPMENT_TEAM = M6L5Y5JY9X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WakebApp/Info.plist;
@@ -486,7 +502,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WakebApp/Preview Content\"";
-				DEVELOPMENT_TEAM = QFADMQJHDK;
+				DEVELOPMENT_TEAM = M6L5Y5JY9X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WakebApp/Info.plist;

@@ -418,8 +418,9 @@ struct ReadingPage: View {
                         HStack {
                             Image(systemName: "chevron.left")
                                 .resizable()
-                                .frame(width: 20, height: 20)
+                                .frame(width: 24, height: 24)
                             Text("Back")
+                                .font(.system(size: 24))
                         }
                         .foregroundColor(.black)
                     }
@@ -431,8 +432,10 @@ struct ReadingPage: View {
                     }) {
                         Text("Settings")
                             .foregroundColor(.black)
+                            .font(.system(size: 24))
                         Image(systemName: "gearshape.fill")
                             .resizable()
+                            .frame(width: 24, height: 24)
                             .foregroundColor(.black)
                     }
                 }

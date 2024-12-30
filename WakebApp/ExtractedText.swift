@@ -4,7 +4,7 @@ import SwiftUI
 
 struct ExtractedText: View {
     var recognizedText: String
-
+    
     var body: some View {
         ZStack {
             Color.offWhite
@@ -18,6 +18,7 @@ struct ExtractedText: View {
                     .navigationBarTitleDisplayMode(.inline)
                 
                 // Button to navigate to ReadingPage
+                
                 NavigationLink(destination: ReadingPage(extractedText: recognizedText)) {
                     Text("Confirm")
                         .font(.title2)
@@ -25,68 +26,81 @@ struct ExtractedText: View {
                         .foregroundColor(.black)
                         .background(Color.softy)
                         .cornerRadius(10)
-                }
-                .padding()
-            }
-        }
-    }
-      
-}
-
-//import SwiftUI
-//
-//struct ExtractedText: View {
-//    var recognizedText: String  // Ensure this matches what you're trying to pass
-//
-//    var body: some View {
-//        ScrollView {
-//            Text(recognizedText)
-//                .padding()
-//                .navigationTitle("Extracted Text")
-//                .navigationBarTitleDisplayMode(.inline)
-//            NavigationLink(destination: ReadingPage(extractedText: recognizedText)) {
-//                Text("Confirm")
-//                    .font(.title2)
-//                    .padding()
-//                    .foregroundColor(.black)
-//                    .background(Color.softy)
-//                    .cornerRadius(10)
-//            }
-//       
-//        
-//        }
-//    }
-//}
-//import SwiftUI
-//
-//struct ExtractedText: View {
-//    var recognizedText: String
-//
-//    var body: some View {
-//        ScrollView {
-//            VStack {
-//                if recognizedText.isEmpty {
-//                    Text("No text extracted.")
-//                        .foregroundColor(.gray)
-//                        .padding()
-//                } else {
-//                    Text(recognizedText)
-//                        .padding()
-//                    
-//                    // Navigation button to ReadingPage
-//                    NavigationLink(destination: ReadingPage(extractedText: recognizedText)) {
-//                        Text("Go to Reading Page")
-//                            .font(.title2)
-//                            .padding()
-//                            .foregroundColor(.white)
-//                            .background(Color.blue) // Change to your desired color
-//                            .cornerRadius(10)
-//                    }
-//                    .padding(.top)
-//                }
-//            }
-//            .navigationTitle("Extracted Text")
-//            .navigationBarTitleDisplayMode(.inline)
-//        }
-//    }
-//}
+                }  .navigationBarBackButtonHidden(true)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            NavigationLink(destination: HomePage()) {
+                                HStack {
+                                    Image(systemName: "chevron.left")
+                                        .resizable()
+                                        .frame(width: 24, height: 24)
+                                    Text("Back")
+                                        .font(.system(size: 24))
+                                    
+                                }
+                                .foregroundColor(.black)
+                                .padding()
+                            }
+                        }
+                    }
+                
+            }}
+        
+        //import SwiftUI
+        //
+        //struct ExtractedText: View {
+        //    var recognizedText: String  // Ensure this matches what you're trying to pass
+        //
+        //    var body: some View {
+        //        ScrollView {
+        //            Text(recognizedText)
+        //                .padding()
+        //                .navigationTitle("Extracted Text")
+        //                .navigationBarTitleDisplayMode(.inline)
+        //            NavigationLink(destination: ReadingPage(extractedText: recognizedText)) {
+        //                Text("Confirm")
+        //                    .font(.title2)
+        //                    .padding()
+        //                    .foregroundColor(.black)
+        //                    .background(Color.softy)
+        //                    .cornerRadius(10)
+        //            }
+        //
+        //
+        //        }
+        //    }
+        //}
+        //import SwiftUI
+        //
+        //struct ExtractedText: View {
+        //    var recognizedText: String
+        //
+        //    var body: some View {
+        //        ScrollView {
+        //            VStack {
+        //                if recognizedText.isEmpty {
+        //                    Text("No text extracted.")
+        //                        .foregroundColor(.gray)
+        //                        .padding()
+        //                } else {
+        //                    Text(recognizedText)
+        //                        .padding()
+        //
+        //                    // Navigation button to ReadingPage
+        //                    NavigationLink(destination: ReadingPage(extractedText: recognizedText)) {
+        //                        Text("Go to Reading Page")
+        //                            .font(.title2)
+        //                            .padding()
+        //                            .foregroundColor(.white)
+        //                            .background(Color.blue) // Change to your desired color
+        //                            .cornerRadius(10)
+        //                    }
+        //                    .padding(.top)
+        //                }
+        //            }
+        //            .navigationTitle("Extracted Text")
+        //            .navigationBarTitleDisplayMode(.inline)
+        //        }
+        //    }
+        //}
+    }}

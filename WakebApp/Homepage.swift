@@ -108,9 +108,9 @@ struct HomePage: View {
                     }
                 }
                 .padding()
-                .navigationBarBackButtonHidden(true)
+                //.navigationBarBackButtonHidden(true)
             }
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 
     struct PhotoPicker: UIViewControllerRepresentable {

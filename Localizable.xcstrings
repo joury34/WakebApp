@@ -52,6 +52,9 @@
         }
       }
     },
+    "Cancel" : {
+
+    },
     "Confirm" : {
       "localizations" : {
         "ar" : {
@@ -61,6 +64,9 @@
           }
         }
       }
+    },
+    "Confirm " : {
+
     },
     "Customize Your Reading Experience" : {
       "comment" : "Customize Your Reading Experience",
@@ -72,6 +78,12 @@
           }
         }
       }
+    },
+    "Document Content" : {
+
+    },
+    "Document Details" : {
+
     },
     "Document Scanner" : {
       "localizations" : {
@@ -93,6 +105,9 @@
           }
         }
       }
+    },
+    "Edit" : {
+
     },
     "Focus" : {
       "localizations" : {
@@ -144,6 +159,9 @@
         }
       }
     },
+    "New Document Title" : {
+
+    },
     "Original" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -175,7 +193,23 @@
         }
       }
     },
+    "Rename" : {
+
+    },
+    "Rename Document" : {
+
+    },
+    "Reselect  " : {
+
+    },
+    "Review Photo" : {
+
+    },
+    "Save Document" : {
+
+    },
     "Saved Document" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -185,7 +219,11 @@
         }
       }
     },
+    "Saved Documents" : {
+
+    },
     "Saved doucements" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {

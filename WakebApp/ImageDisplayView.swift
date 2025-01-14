@@ -1,3 +1,11 @@
+//
+//  ImageDisplayView.swift
+//  WakebApp
+//
+//  Created by Joury on 14/07/1446 AH.
+//
+
+
 import SwiftUI
 
 struct ImageDisplayView: View {

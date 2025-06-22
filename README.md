@@ -4,6 +4,8 @@ Wakeb | واكب App
 
 
 
+
+
 Welcome to Wakeb | واكب! This innovative app is designed to make reading more accessible and personalized for individuals with dyslexia. With features like text extraction, customizable font sizes, and the ability to save documents, Wakeb is a powerful tool for a smoother reading experience.
 --------------
 📲 Features

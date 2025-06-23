@@ -57,9 +57,3 @@ Cloud Sync: Enable syncing documents across multiple devices.
 ------------------
 
 
-📞 Contacts
-
-If you have any questions, suggestions, or feedback, feel free to reach out!
-
-Email:jouryalsulimani@gmail.com
-LinkedIn: https://www.linkedin.com/in/joury-alsulimani-242269273/

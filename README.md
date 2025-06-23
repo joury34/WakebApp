@@ -72,10 +72,7 @@ Improved UI: Add animations and improve navigation for a smoother user experienc
 
 Cloud Sync: Enable syncing documents across multiple devices.
 ------------------
-🤝 Contributing
 
-Contributions are welcome! Feel free to fork the repository and create a pull request with your changes. Open issues for bugs or feature requests.
------------------
 
 📞 Contacts
 

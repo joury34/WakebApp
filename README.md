@@ -31,25 +31,8 @@ MVVM Architecture: Structured using the Model-View-ViewModel pattern for a clean
 
 CoreData: For storing and managing saved documents.
 ---------------
-🚀 Getting Started
 
-Prerequisites
-Xcode 12 or later
-iOS 14.0 or later
 
-Installation
-Clone the repository:
-
-git clone https://github.com/joury34/WakebApp
-
-Open in Xcode:
-
-cd WakebApp
-
-open WakebApp.xcodeproj
-Build and run the app on your preferred simulator or iOS device.
-
-----------------
 📖 Usage
 
 Extract Text: Upload a scanned image or photo to extract text and make reading easier.
